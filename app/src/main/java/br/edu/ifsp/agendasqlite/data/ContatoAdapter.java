@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -92,6 +93,12 @@ public class ContatoAdapter
     @Override
     public void onBindViewHolder(@NonNull ContatoViewHolder holder, int position) {
             holder.nome.setText(contactListFiltered.get(position).getNome());
+
+            holder.img.setImageResource(R.drawable.star_off);
+
+            if (contactListFiltered.get(position).getFavorito() == 1){
+                holder.img.setImageResource(R.drawable.star_on);
+            }
     }
 
     @Override
@@ -138,10 +145,12 @@ public class ContatoAdapter
             implements View.OnClickListener
     {
         final TextView nome;
+        final ImageView img;
 
         public ContatoViewHolder(@NonNull View itemView) {
             super(itemView);
             nome = (TextView) itemView.findViewById(R.id.nome);
+            img = (ImageView) itemView.findViewById(R.id.imgFavorito);
             itemView.setOnClickListener(this);
         }
 

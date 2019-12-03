@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import br.edu.ifsp.agendasqlite.R;
@@ -34,6 +35,13 @@ public class DetalheActivity extends AppCompatActivity {
 
             EditText email = findViewById(R.id.editTextEmail);
             email.setText(c.getEmail());
+
+            Switch favorito = findViewById(R.id.swFavorito);
+
+            if (c.getFavorito() > 0){
+                favorito.setChecked(true);
+            }
+
 
         }
 
@@ -63,10 +71,12 @@ public class DetalheActivity extends AppCompatActivity {
             String nome = ((EditText) findViewById(R.id.editTextNome)).getText().toString();
             String fone = ((EditText) findViewById(R.id.editTextFone)).getText().toString();
             String email = ((EditText) findViewById(R.id.editTextEmail)).getText().toString();
+            int favorito = ((Switch) findViewById(R.id.swFavorito)).isChecked() ? 1:0;
 
             c.setNome(nome);
             c.setFone(fone);
             c.setEmail(email);
+            c.setFavorito(favorito);
 
             dao.alterarContato(c);
             Log.d("ID: ", Integer.toString(c.getId()));
