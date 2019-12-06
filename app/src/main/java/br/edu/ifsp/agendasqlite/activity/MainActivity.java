@@ -55,11 +55,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layout);
 
         contatos = dao.listaContatos();
-
         adapter = new ContatoAdapter(contatos);
-
         recyclerView.setAdapter(adapter);
-
         adapter.setClickListener(new ContatoAdapter.ItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -100,13 +97,9 @@ public class MainActivity extends AppCompatActivity {
                 float width = height / 3;
 
                 p.setColor(ContextCompat.getColor(getBaseContext(), android.R.color.holo_orange_light));
-
                 RectF background = new RectF((float) itemView.getLeft(), (float) itemView.getTop(), dX, (float) itemView.getBottom());
-
                 c.drawRect(background, p);
-
                 icon = BitmapFactory.decodeResource(getResources(), android.R.drawable.ic_delete);
-
                 RectF icon_dest = new RectF((float) itemView.getLeft() + width, (float) itemView.getTop() + width,
                         (float) itemView.getLeft() + 2 * width, (float) itemView.getBottom() - width);
 

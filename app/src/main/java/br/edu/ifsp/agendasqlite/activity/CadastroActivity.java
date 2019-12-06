@@ -43,6 +43,8 @@ public class CadastroActivity extends AppCompatActivity {
             String fone = ((EditText) findViewById(R.id.editTextFone)).getText().toString();
             String email = ((EditText) findViewById(R.id.editTextEmail)).getText().toString();
             int favorito = ((Switch) findViewById(R.id.swFavorito)).isChecked() ? 1:0;
+            String foneAdicional = ((EditText) findViewById(R.id.editTextFoneAdicional)).getText().toString();
+            String dtNascimento = ((EditText) findViewById(R.id.editTextDtNascimento)).getText().toString();
 
             Contato c = new Contato(nome,fone,email,favorito);
 

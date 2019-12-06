@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +45,8 @@ public class ContatoDAO {
            c.setFone(cursor.getString(2));
            c.setEmail(cursor.getString(3));
            c.setFavorito(cursor.getInt(4));
-
+           c.setFoneAdicional(cursor.getString(5));
+           c.setDtNascimento(cursor.getString(6));
            contatos.add(c);
         }
 
@@ -65,6 +67,8 @@ public class ContatoDAO {
         values.put(SQLiteHelper.KEY_FONE, c.getFone());
         values.put(SQLiteHelper.KEY_EMAIL, c.getEmail());
         values.put(SQLiteHelper.KEY_FAVORITO, c.getFavorito());
+        values.put(SQLiteHelper.KEY_FONE_ADICIONAL,c.getFoneAdicional());
+        values.put(SQLiteHelper.KEY_DT_NASCIMENTO,c.getDtNascimento());
 
         long id = database.insert(SQLiteHelper.TABLE_NAME, null, values);
 
@@ -82,6 +86,8 @@ public class ContatoDAO {
         values.put(SQLiteHelper.KEY_FONE, c.getFone());
         values.put(SQLiteHelper.KEY_EMAIL, c.getEmail());
         values.put(SQLiteHelper.KEY_FAVORITO,c.getFavorito());
+        values.put(SQLiteHelper.KEY_FONE_ADICIONAL,c.getFoneAdicional());
+        values.put(SQLiteHelper.KEY_DT_NASCIMENTO,c.getDtNascimento());
 
         database.update(SQLiteHelper.TABLE_NAME, values,
                      SQLiteHelper.KEY_ID +"=" +c.getId(),null);

@@ -9,6 +9,8 @@ public class Contato implements Serializable {
     private String fone;
     private String email;
     private int favorito;
+    private String foneAdicional;
+    private String dtNascimento;
 
     public Contato() {
     }
@@ -67,5 +69,21 @@ public class Contato implements Serializable {
 
     public void setFavorito(int favorito) {
         this.favorito = favorito;
+    }
+
+    public String getFoneAdicional() {
+        return foneAdicional;
+    }
+
+    public void setFoneAdicional(String foneAdicional) {
+        this.foneAdicional = foneAdicional;
+    }
+
+    public String getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(String dtNascimento) {
+        this.dtNascimento = dtNascimento;
     }
 }

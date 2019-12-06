@@ -32,6 +32,26 @@
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FONE ADICIONAL: "/>
+
+    <EditText
+        android:id="@+id/editTextFoneAdicional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DT_NASCIMENTO: "/>
+
+    <EditText
+        android:id="@+id/editTextDtNascimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
     <Switch
         android:id="@+id/swFavorito"
