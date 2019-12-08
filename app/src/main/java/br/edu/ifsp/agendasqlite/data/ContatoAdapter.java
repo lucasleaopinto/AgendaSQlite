@@ -95,16 +95,20 @@ public class ContatoAdapter
 
                 int favorito = contato.getFavorito();
 
-                switch (favorito){
-                    case 0: contato.setFavorito(1); break;
-                    case 1: contato.setFavorito(0); break;
+                switch (favorito) {
+                    case 0:
+                        contato.setFavorito(1);
+                        break;
+                    case 1:
+                        contato.setFavorito(0);
+                        break;
                 }
 
                 //TODO save if necessary
-
                 notifyDataSetChanged();
             }
         });
+
     }
 
     @Override
@@ -123,7 +127,7 @@ public class ContatoAdapter
                 } else {
                     List<Contato> filteredList = new ArrayList<>();
                     for (Contato row : contatos) {
-                        if (row.getNome().toLowerCase().contains(charString.toLowerCase())) {
+                        if (row.getNome().toLowerCase().contains(charString.toLowerCase()) || row.getEmail().toLowerCase().contains(charString.toLowerCase())) {
                             filteredList.add(row);
                         }
                     }

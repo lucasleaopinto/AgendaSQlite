@@ -24,7 +24,6 @@ public class ContatoDAO {
     public List<Contato> listaContatos()
     {
         database = dbHelper.getReadableDatabase();
-
         List<Contato> contatos = new ArrayList<>();
 
         Cursor cursor;

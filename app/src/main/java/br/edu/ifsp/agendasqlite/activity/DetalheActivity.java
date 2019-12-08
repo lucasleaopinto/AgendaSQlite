@@ -23,9 +23,8 @@ public class DetalheActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhe);
 
-        if (getIntent().hasExtra("contato"))
-        {
-            this.c = (Contato)getIntent().getSerializableExtra("contato");
+        if (getIntent().hasExtra("contato")) {
+            this.c = (Contato) getIntent().getSerializableExtra("contato");
 
             EditText nome = findViewById(R.id.editTextNome);
             nome.setText(c.getNome());
@@ -37,14 +36,16 @@ public class DetalheActivity extends AppCompatActivity {
             email.setText(c.getEmail());
 
             Switch favorito = findViewById(R.id.swFavorito);
-
-            if (c.getFavorito() > 0){
+            if (c.getFavorito() > 0) {
                 favorito.setChecked(true);
             }
 
+            EditText foneAdicional = findViewById(R.id.editTextFoneAdicional);
+            foneAdicional.setText(c.getFoneAdicional());
 
+            EditText dtNascimento = findViewById(R.id.editTextDtNascimento);
+            dtNascimento.setText(c.getDtNascimento());
         }
-
 
 
     }
@@ -71,39 +72,40 @@ public class DetalheActivity extends AppCompatActivity {
             String nome = ((EditText) findViewById(R.id.editTextNome)).getText().toString();
             String fone = ((EditText) findViewById(R.id.editTextFone)).getText().toString();
             String email = ((EditText) findViewById(R.id.editTextEmail)).getText().toString();
-            int favorito = ((Switch) findViewById(R.id.swFavorito)).isChecked() ? 1:0;
+            int favorito = ((Switch) findViewById(R.id.swFavorito)).isChecked() ? 1 : 0;
+            String foneAdicional = ((EditText) findViewById(R.id.editTextFoneAdicional)).getText().toString();
+            String dtNascimento = ((EditText) findViewById(R.id.editTextDtNascimento)).getText().toString();
 
             c.setNome(nome);
             c.setFone(fone);
             c.setEmail(email);
             c.setFavorito(favorito);
+            c.setFoneAdicional(foneAdicional);
+            c.setDtNascimento(dtNascimento);
 
             dao.alterarContato(c);
             Log.d("ID: ", Integer.toString(c.getId()));
-            Log.d("NOME: ",c.getNome());
+            Log.d("NOME: ", c.getNome());
 
             MainActivity.adapter.atualizaContatoAdapter(c);
 
-            Toast.makeText(getApplicationContext(),"Contato alterado",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Contato alterado", Toast.LENGTH_LONG).show();
 
             finish();
         }
 
-        if (id ==R.id.action_excluirContato) {
+        if (id == R.id.action_excluirContato) {
             ContatoDAO dao = new ContatoDAO(this);
             dao.excluirContato(c);
             MainActivity.adapter.apagaContatoAdapter(c);
 
-            Toast.makeText(getApplicationContext(),"Contato excluído",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Contato excluído", Toast.LENGTH_LONG).show();
             finish();
 
         }
 
-
         return super.onOptionsItemSelected(item);
     }
-
-
 
 
 }

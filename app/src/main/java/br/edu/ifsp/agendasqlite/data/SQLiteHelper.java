@@ -20,7 +20,7 @@ class SQLiteHelper extends SQLiteOpenHelper {
     static final String KEY_DT_NASCIMENTO = "dt_nascimento";
 
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 1;
 
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " ("
             + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "

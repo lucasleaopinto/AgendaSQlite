@@ -15,7 +15,7 @@ public class Contato implements Serializable {
     public Contato() {
     }
 
-    public Contato(String nome, String fone, String email, int favorito) {
+    public Contato(String nome, String fone, String email, int favorito, String foneAdicional, String dtNascimento) {
         this.nome = nome;
         this.fone = fone;
         this.email = email;

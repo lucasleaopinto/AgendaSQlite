@@ -46,7 +46,7 @@ public class CadastroActivity extends AppCompatActivity {
             String foneAdicional = ((EditText) findViewById(R.id.editTextFoneAdicional)).getText().toString();
             String dtNascimento = ((EditText) findViewById(R.id.editTextDtNascimento)).getText().toString();
 
-            Contato c = new Contato(nome,fone,email,favorito);
+            Contato c = new Contato(nome,fone,email,favorito,foneAdicional, dtNascimento);
 
             int idContato = (int) dao.incluirContato(c);
             c.setId(idContato);

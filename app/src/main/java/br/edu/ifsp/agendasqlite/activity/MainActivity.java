@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
                   dao.excluirContato(c);
                   adapter.apagaContatoAdapter(c);
                   Toast.makeText(getApplicationContext(),"Contato apagado", Toast.LENGTH_LONG).show();
-
             }
 
             @Override
@@ -107,10 +106,6 @@ public class MainActivity extends AppCompatActivity {
 
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
             }
-
-
-
-
         };
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
@@ -166,7 +161,6 @@ public class MainActivity extends AppCompatActivity {
        /* if (id == R.id.action_settings) {
             return true;
         }*/
-
         return super.onOptionsItemSelected(item);
     }
 }
